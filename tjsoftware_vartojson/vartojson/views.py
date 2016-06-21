@@ -3,10 +3,11 @@ from num2words import num2words
 
 
 def index(request):
+    liczba = request.POST.get('liczba', 0)
     return JsonResponse({
-        request.POST.get('liczba', 0):
+        liczba:
         num2words(
-                request.POST.get('liczba', 0),
+                liczba,
                 lang='en',
         )
     })
